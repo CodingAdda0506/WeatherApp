@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import MainSection from './components/mainSection';
 
 const App = () => {
   // /Syntax
@@ -22,15 +23,18 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      {weatherData ? (
-        <div className="">
-          <li>Pressure: {weatherData.main.pressure} atm</li>
-          <li>Temperature: {weatherData.main.temp} &deg;K</li>
-        </div>
-      ) : (
-        <p>Loading Data</p>
-      )}
+    // <div>
+    //   {weatherData ? (
+    //     <div className="">
+    //       <li>Pressure: {weatherData.main.pressure} atm</li>
+    //       <li>Temperature: {weatherData.main.temp} &deg;K</li>
+    //     </div>
+    //   ) : (
+    //     <p>Loading Data</p>
+    //   )}
+    // </div>
+    <div className="h-screen bg-[#141316] font-Changa flex flex-col justify-center items-center">
+      <MainSection />
     </div>
   )
 }
