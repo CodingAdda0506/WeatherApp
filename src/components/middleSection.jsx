@@ -1,6 +1,13 @@
 import React from 'react'
 
-const middleSection = () => {
+const middleSection = ({ lat, lon, sunrise, sunset }) => {
+
+  const formatTime = (timestamp) => {
+    const date = new Date(timestamp * 1000);
+    const options = { hour: 'numeric', minute: 'numeric' };
+    return date.toLocaleTimeString([], options);
+  }
+
   return (
     <div className='mt-2 pb-2 bg-white w-[380px] rounded-xl text-black flex flex-col justify-center items-center'>
       {/* lat and long */}
@@ -9,7 +16,7 @@ const middleSection = () => {
         <div className="flex flex-col justify-center items-center">
           {/* lat value */}
           <div className="text-[40px]">
-          51.5085
+            {lat}
           </div>
           {/* lat title  */}
           <div className="text-[15px] mt-[-15px]">
@@ -20,7 +27,7 @@ const middleSection = () => {
         <div className="ml-[35px] flex flex-col justify-center items-center">
           {/* lon value */}
           <div className="text-[40px]">
-          -0.1257
+            {lon}
           </div>
           {/* lon title  */}
           <div className="text-[15px] mt-[-15px]">
@@ -34,7 +41,7 @@ const middleSection = () => {
         <div className="flex flex-col justify-center items-center">
           {/* sunrise value */}
           <div className="text-[40px]">
-          9:19 AM
+            {formatTime(sunrise)}
           </div>
           {/* sunrise title  */}
           <div className="text-[15px] mt-[-15px]">
@@ -45,7 +52,7 @@ const middleSection = () => {
         <div className="ml-[35px] flex flex-col justify-center items-center">
           {/* sunset value */}
           <div className="text-[40px]">
-          1:49 AM
+            {formatTime(sunset)}
           </div>
           {/* sunset title  */}
           <div className="text-[15px] mt-[-15px]">
